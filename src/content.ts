@@ -1,0 +1,109 @@
+import "@fontsource/syne/700.css";
+import "@fontsource/syne/800.css";
+import type { Site } from "./lib";
+
+export const SITE: Site = {
+  name: "Bellagio",
+  sub: { en: "Rooftop restaurant & bar · Sector 58, Golf Course Ext. Rd", hi: "रूफ़टॉप रेस्टोरेंट और बार · सेक्टर 58, गोल्फ़ कोर्स एक्सटेंशन रोड" },
+  banner: { en: "Rooftop open till 1am, 2am on Fridays and Saturdays", hi: "रूफ़टॉप रात 1 बजे तक खुला, शुक्रवार-शनिवार 2 बजे तक" },
+  phone: "918130476700",
+  phoneDisplay: "+91 81304 76700",
+  lat: 28.4163161,
+  lon: 77.1020671,
+  hours: [[12, 25], [12, 25], [12, 25], [12, 25], [12, 25], [12, 26], [12, 26]],
+  theme: {
+    dark: true,
+    bg: "#0a0e1a",
+    bg2: "#111829",
+    panel: "#161e33",
+    ink: "#f4f1ea",
+    ink2: "#c3c3c9",
+    ink3: "#858aa0",
+    line: "#253050",
+    accent: "#f2b45a",
+    onAccent: "#2a1700",
+    display: "Syne",
+    weight: 800,
+    upper: false,
+  },
+  scene: "lanterns",
+  align: "right",
+  hero: {
+    title: [
+      { en: "Up on the roof,", hi: "छत पर," },
+      { en: "the city slows down.", hi: "शहर थम जाता है।" },
+    ],
+    proof: {
+      en: "4.3 on Google from 2,218 reviews. Baos, pides, cocktails and a DJ on an open terrace above Grand View High Street.",
+      hi: "गूगल पर 2,218 रिव्यू से 4.3। बाओ, पीदे, कॉकटेल और DJ, ग्रैंड व्यू हाई स्ट्रीट के ऊपर खुली छत पर।",
+    },
+    fallback: "/img/p5.jpg",
+  },
+  marquee: ["Katsu Chicken Bao", "Pide", "Lebanese Mezze", "Adivasi Chicken", "Cocktails", "Mocktails", "Rooftop DJ"],
+  dishes: {
+    title: { en: "The plates people tell their friends about", hi: "वो डिश जिनके बारे में लोग दोस्तों को बताते हैं" },
+    body: { en: "Straight from Google reviews, word for word.", hi: "सीधे गूगल रिव्यू से, ज्यों के त्यों।" },
+    layout: "cards",
+    items: [
+      { name: { en: "Katsu Chicken Bao", hi: "कात्सु चिकन बाओ" }, quote: "Their must try food is Katsu chicken baozi. Its literally the best thing you can ever eat." },
+      { name: { en: "Pides & Lebanese", hi: "पीदे और लेबनीज़" }, quote: "Their Pides are really yummy. Even Lebanese cuisine should be tried.", img: "/img/p3.jpg" },
+      { name: { en: "Cocktails", hi: "कॉकटेल" }, quote: "Cocktails were amazing. Would love to visit again for an awesome vibe.", img: "/img/p6.jpg" },
+      { name: { en: "Adivasi Chicken", hi: "आदिवासी चिकन" }, quote: "Must try Adivasi Chicken with Beer." },
+      { name: { en: "The Baos", hi: "बाओ" }, quote: "The Bao were a standout—crispy, flavorful, and a creative twist." },
+      { name: { en: "Presentation", hi: "प्रेज़ेंटेशन" }, quote: "Loved the way the food and mocktails were presented. The food presentation is really pretty.", img: "/img/p7.jpg" },
+    ],
+  },
+  gallery: {
+    title: { en: "From afternoon light to neon", hi: "दोपहर की धूप से नियॉन तक" },
+    layout: "strip",
+    photos: [
+      { src: "/img/p1.jpg", alt: "Bellagio rooftop by day" },
+      { src: "/img/p11.jpg", alt: "Terrace lounge at dusk" },
+      { src: "/img/p5.jpg", alt: "Terrace at night" },
+      { src: "/img/p4.jpg", alt: "The bar at night" },
+      { src: "/img/p13.jpg", alt: "Chandelier corridor" },
+      { src: "/img/p10.jpg", alt: "Building lit up at night" },
+    ],
+  },
+  feature: {
+    kind: "daynight",
+    title: { en: "Two places on one roof", hi: "एक छत, दो मिज़ाज" },
+    body: { en: "Quiet lunches in the afternoon, music and lights after dark. Pick your hour.", hi: "दोपहर में सुकून भरा लंच, रात में म्यूज़िक और रोशनी। अपना वक़्त चुनिए।" },
+    day: {
+      label: { en: "Day", hi: "दिन" },
+      body: { en: "Sunlight, open seating and room to talk.", hi: "धूप, खुली बैठक और बात करने की जगह।" },
+      img: "/img/p1.jpg",
+      quote: "Visited today with a friend. The place has a nice ambience and very quiet during the day to have a chat.",
+    },
+    night: {
+      label: { en: "Night", hi: "रात" },
+      body: { en: "The DJ starts, the terrace lights up.", hi: "DJ शुरू होता है, छत जगमगा उठती है।" },
+      img: "/img/p5.jpg",
+      quote: "The roof top is especially amazing with a vibrant DJ ensuring the beats are right and music not interfering with your conversations.",
+    },
+  },
+  reviews: {
+    title: { en: "Why people keep coming back", hi: "लोग बार-बार क्यों आते हैं" },
+    rating: 4.3,
+    dist: [1496, 361, 106, 45, 210],
+    quotes: [
+      { quote: "We keep going back here. Must be for a reason. Perfect for couples/friends.", stars: 5 },
+      { quote: "Thumbs up to service and specially to Rajinder who served our table, humble attitude and quick to respond.", stars: 5 },
+      { quote: "We were a group of around 100 people, and the place felt spacious enough to comfortably accommodate everyone without feeling crowded.", stars: 5 },
+      { quote: "Even in hot summer evening, you are slowly cooled off by water sprinklers and coolers around the terrace...", stars: 5 },
+      { quote: "And thank you again, DJ, you were EXCELLENT!!!", stars: 5 },
+    ],
+  },
+  visit: {
+    title: { en: "Look for the neon sign", hi: "नियॉन साइन ढूंढिए" },
+    img: "/img/p9.jpg",
+    alt: "Neon Bellagio sign at the entrance",
+    address: { en: "Grand View High Street, Sector 58, Golf Course Road Extension, Gurugram", hi: "ग्रैंड व्यू हाई स्ट्रीट, सेक्टर 58, गोल्फ़ कोर्स रोड एक्सटेंशन, गुरुग्राम" },
+    note: { en: "Big group? Message ahead and the terrace is set up for you.", hi: "बड़ा ग्रुप है? पहले मैसेज करें, छत आपके लिए तैयार मिलेगी।" },
+  },
+  waHello: {
+    en: "Hi Bellagio, I'd like to book a table on the rooftop. Date: , time: , people: ",
+    hi: "नमस्ते Bellagio, मुझे रूफ़टॉप पर टेबल बुक करनी है। तारीख़: , समय: , लोग: ",
+  },
+  order: ["feature", "dishes", "reviews", "gallery", "visit"],
+};
