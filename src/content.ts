@@ -26,7 +26,7 @@ export const SITE: Site = {
     weight: 800,
     upper: false,
   },
-  scene: "lanterns",
+  scene: "pour",
   align: "right",
   hero: {
     title: [
@@ -101,9 +101,32 @@ export const SITE: Site = {
     address: { en: "Grand View High Street, Sector 58, Golf Course Road Extension, Gurugram", hi: "ग्रैंड व्यू हाई स्ट्रीट, सेक्टर 58, गोल्फ़ कोर्स रोड एक्सटेंशन, गुरुग्राम" },
     note: { en: "Big group? Message ahead and the terrace is set up for you.", hi: "बड़ा ग्रुप है? पहले मैसेज करें, छत आपके लिए तैयार मिलेगी।" },
   },
+  pour: { from: "jug", into: "glass", liquid: "#e98a3c", foam: "#f7c08a", thick: 1, ice: true, lime: true },
+  story: [
+    { kicker: { en: "The glass", hi: "गिलास" }, title: { en: "Start with a cocktail.", hi: "शुरुआत कॉकटेल से।" }, quote: "Cocktails were amazing. Would love to visit again for an awesome vibe." },
+    { kicker: { en: "The roof", hi: "रूफ़टॉप" }, title: { en: "A DJ that never drowns you out.", hi: "DJ, पर बातचीत में रुकावट नहीं।" }, quote: "The roof top is especially amazing with a vibrant DJ ensuring the beats are right and music not interfering with your conversations." },
+    { kicker: { en: "The crowd", hi: "भीड़" }, title: { en: "Room for all hundred of you.", hi: "सौ लोगों के लिए भी जगह।" }, quote: "We were a group of around 100 people, and the place felt spacious enough to comfortably accommodate everyone without feeling crowded." },
+  ],
+  build: {
+    title: { en: "Plan your visit in a few taps", hi: "कुछ टैप में अपनी विज़िट प्लान करें" },
+    body: { en: "Day or night, what you want to eat, how many and when. It lands on WhatsApp exactly as you see it.", hi: "दिन या रात, क्या खाना है, कितने लोग और कब। मैसेज व्हाट्सऐप पर ठीक ऐसे ही पहुंचेगा।" },
+    pick: { label: { en: "When", hi: "कब" }, options: [
+      { name: { en: "Day", hi: "दिन" }, note: { en: "Quiet enough to chat", hi: "बात करने लायक शांत" } },
+      { name: { en: "Night", hi: "रात" }, note: { en: "Rooftop with a DJ", hi: "DJ के साथ रूफ़टॉप" } },
+    ] },
+    items: [
+      { en: "Katsu Chicken Bao", hi: "कात्सु चिकन बाओ" },
+      { en: "Pides", hi: "पीदे" },
+      { en: "Adivasi Chicken", hi: "आदिवासी चिकन" },
+      { en: "Cocktails", hi: "कॉकटेल" },
+    ],
+    people: true,
+    when: true,
+    hello: { en: "Hi Bellagio, I'd like to book:", hi: "नमस्ते बेलाजियो, मुझे बुक करना है:" },
+  },
   waHello: {
     en: "Hi Bellagio, I'd like to book a table on the rooftop. Date: , time: , people: ",
     hi: "नमस्ते Bellagio, मुझे रूफ़टॉप पर टेबल बुक करनी है। तारीख़: , समय: , लोग: ",
   },
-  order: ["feature", "dishes", "reviews", "gallery", "visit"],
+  order: ["build", "feature", "dishes", "reviews", "gallery", "visit"],
 };

@@ -14,4 +14,6 @@ export const SCENES: Record<SceneKey, LazyExoticComponent<ComponentType<ScenePro
   road: lazy(() => import("./road")),
   cup: lazy(() => import("./cup")),
   thali: lazy(() => import("./thali")),
+  celebration: lazy(() => import("./celebration")),
+  pour: lazy(() => import("./pour")),
 };
