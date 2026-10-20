@@ -5,7 +5,7 @@ import { UI, bi, openState, type Lang, type SectionKey } from "./lib";
 import { LangToggle } from "./components/LangToggle";
 import { Dishes, Gallery, Reviews, Visit } from "./components/Sections";
 import { Feature } from "./components/Feature";
-import { BOOK, MENU_PDF, Menu, Vip } from "./components/Book";
+import { BOOK, MENU_PDF, Vip } from "./components/Book";
 import { Hero } from "./components/Hero";
 
 function useNow() {
@@ -45,7 +45,7 @@ export default function App() {
     feature: () => <Feature lang={lang} reduced={reduced} index={idx()} />,
     reviews: () => <Reviews lang={lang} reduced={reduced} index={idx()} />,
     visit: () => <Visit lang={lang} reduced={reduced} index={idx()} now={now} />,
-    menu: () => <Menu lang={lang} reduced={reduced} index={idx()} />,
+    menu: () => null,
     vip: () => <Vip lang={lang} reduced={reduced} index={idx()} />,
     build: () => null,
   };
@@ -61,8 +61,9 @@ export default function App() {
               <span className="mt-1 block truncate text-[13px] text-ink-2">{bi(SITE.sub, lang)}</span>
             </a>
             <div className="flex shrink-0 items-center gap-3">
-              <a href="#menu" className="hidden rounded-full px-4 py-2.5 text-[15px] font-semibold text-ink-2 transition-colors hover:text-ink md:inline-flex">
-                {m.menuShort}
+              <a href={MENU_PDF} download="Bellagio-Gurugram-Menu.pdf" className="hidden items-center gap-2 rounded-full border border-line px-4 py-2.5 text-[15px] font-semibold text-ink transition-colors hover:border-accent md:inline-flex">
+                <DownloadSimple size={18} weight="bold" />
+                {m.download}
               </a>
               <LangToggle value={lang} onChange={setLang} label={t.lang} />
               <a href="#vip" className="hidden items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[15px] font-semibold text-on-accent transition-transform hover:-translate-y-0.5 md:inline-flex">

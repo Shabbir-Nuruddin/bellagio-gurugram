@@ -129,5 +129,5 @@ export const SITE: Site = {
     en: "Hi Bellagio, I'd like to book a table on the rooftop. Date: , time: , people: ",
     hi: "नमस्ते Bellagio, मुझे रूफ़टॉप पर टेबल बुक करनी है। तारीख़: , समय: , लोग: ",
   },
-  order: ["feature", "menu", "vip", "reviews", "gallery", "visit"],
+  order: ["feature", "vip", "reviews", "gallery", "visit"],
 };

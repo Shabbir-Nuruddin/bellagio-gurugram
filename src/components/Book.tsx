@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, CheckCircle, Crown, DownloadSimple, FilePdf, Minus, Plus, SpinnerGap } from "@phosphor-icons/react";
+import { CheckCircle, Crown, Minus, Plus, SpinnerGap } from "@phosphor-icons/react";
 import { useMemo, useState, type FormEvent, type MouseEvent } from "react";
 import { SITE } from "../content";
 import { bi, fmtHour, type Lang } from "../lib";
@@ -43,14 +43,8 @@ export const BOOK = {
     doneTitle: "Request received",
     doneBody: (n: string) => `Thank you, ${n}. Bellagio will call you shortly to confirm your table.`,
     another: "Make another reservation",
-    menuTitle: "The menu",
     menuShort: "Menu",
-    menuBody: "Mezze and kebabs, wood-fired pizza, bao, small plates and a full bar. Download the full food and bar menu to browse before you arrive.",
     download: "Download menu (PDF)",
-    view: "View menu",
-    pages: "8 pages · food & bar",
-    taxes: "Prices exclude taxes. 10% service charge.",
-    picks: "From the menu",
   },
   hi: {
     cta: "VIP रिज़र्वेशन",
@@ -80,27 +74,10 @@ export const BOOK = {
     doneTitle: "रिक्वेस्ट मिल गई",
     doneBody: (n: string) => `धन्यवाद, ${n}। Bellagio जल्द ही कॉल करके आपकी टेबल कन्फ़र्म करेगा।`,
     another: "एक और रिज़र्वेशन",
-    menuTitle: "मेन्यू",
     menuShort: "मेन्यू",
-    menuBody: "मेज़े और कबाब, वुड-फ़ायर्ड पिज़्ज़ा, बाओ, स्मॉल प्लेट्स और पूरा बार। आने से पहले पूरा फ़ूड और बार मेन्यू डाउनलोड करके देखिए।",
     download: "मेन्यू डाउनलोड करें (PDF)",
-    view: "मेन्यू देखें",
-    pages: "8 पेज · फ़ूड और बार",
-    taxes: "दाम में टैक्स शामिल नहीं। 10% सर्विस चार्ज।",
-    picks: "मेन्यू से",
   },
 };
-
-/** Signature items and prices read off the current printed menu. */
-const PICKS: { name: string; tag: Record<Lang, string>; price: number }[] = [
-  { name: "Mega Non Veg Mezze Platter", tag: { en: "To share", hi: "शेयर करने के लिए" }, price: 3295 },
-  { name: "Adana Kebab", tag: { en: "Mediterranean", hi: "मेडिटेरेनियन" }, price: 875 },
-  { name: "Yuzu Rock Shrimp Bao", tag: { en: "Bao", hi: "बाओ" }, price: 625 },
-  { name: "Katsu Chicken Bao", tag: { en: "Bao", hi: "बाओ" }, price: 595 },
-  { name: "Margherita Pizza", tag: { en: "Wood-fired", hi: "वुड-फ़ायर्ड" }, price: 525 },
-  { name: "The Bellagio Spritzer", tag: { en: "House cocktail", hi: "हाउस कॉकटेल" }, price: 795 },
-];
-const THUMBS = ["/menu/food5.webp", "/menu/food4.webp", "/menu/bar5.webp"];
 
 /** Half-hour slots the restaurant is open on a given date, as decimal hours. */
 function slots(date: Date, isToday: boolean) {
@@ -352,66 +329,6 @@ export function Vip({ lang, reduced, index }: { lang: Lang; reduced: boolean; in
             </AnimatePresence>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/** Menu section: real signature items and prices, with the full menu as a downloadable PDF. */
-export function Menu({ lang, reduced, index }: { lang: Lang; reduced: boolean; index: string }) {
-  const m = BOOK[lang];
-  return (
-    <section id="menu" className="scroll-mt-28 py-20 lg:py-28">
-      <div className="mx-auto grid max-w-[1280px] gap-12 px-4 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
-        <div>
-          <Heading index={index} title={m.menuTitle} body={m.menuBody} reduced={reduced} />
-          <div className="mt-8">
-            <p className={LABEL}>{m.picks.toUpperCase()}</p>
-            <ul className="divide-y divide-line border-y border-line">
-              {PICKS.map((p) => (
-                <li key={p.name} className="flex items-baseline justify-between gap-4 py-3.5">
-                  <span>
-                    <span className="block text-[17px] font-semibold text-ink">{p.name}</span>
-                    <span className="text-[13px] text-ink-3">{p.tag[lang]}</span>
-                  </span>
-                  <span className="shrink-0 font-display text-[20px] tabular-nums text-ink">₹{p.price.toLocaleString("en-IN")}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-3 text-[13px] text-ink-3">{m.taxes}</p>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href={MENU_PDF} download="Bellagio-Gurugram-Menu.pdf" className="inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-on-accent transition-transform hover:-translate-y-0.5 active:scale-[0.98]">
-              <DownloadSimple size={20} weight="bold" />
-              {m.download}
-            </a>
-            <a href={MENU_PDF} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 rounded-full border border-line px-6 py-4 text-[16px] font-semibold text-ink transition-colors hover:border-accent">
-              {m.view}
-              <ArrowRight size={18} weight="bold" />
-            </a>
-          </div>
-        </div>
-
-        <a href={MENU_PDF} target="_blank" rel="noreferrer" aria-label={m.view} className="group relative mx-auto block h-[440px] w-full max-w-[460px] sm:h-[520px]">
-          {THUMBS.map((src, i) => (
-            <motion.img
-              key={src}
-              src={src}
-              alt=""
-              loading="lazy"
-              initial={reduced ? false : { opacity: 0, y: 40, rotate: 0 }}
-              whileInView={{ opacity: 1, y: 0, rotate: [-7, 4, -1][i] }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.9, ease: EASE, delay: i * 0.12 }}
-              className="absolute top-0 w-[62%] rounded-xl border border-line bg-white shadow-[0_24px_60px_-24px_rgba(14,12,10,0.45)] transition-transform duration-500 group-hover:-translate-y-2"
-              style={{ left: `${[0, 19, 38][i]}%`, top: `${[6, 0, 10][i]}%`, zIndex: i }}
-            />
-          ))}
-          <span className="absolute bottom-0 left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-ink px-4 py-2 text-[13px] font-semibold text-bg">
-            <FilePdf size={16} weight="fill" />
-            {m.pages}
-          </span>
-        </a>
       </div>
     </section>
   );
