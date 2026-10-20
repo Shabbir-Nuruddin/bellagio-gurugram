@@ -100,7 +100,7 @@ export const SITE: Site = {
     img: "/img/p9.jpg",
     alt: "Neon Bellagio sign at the entrance",
     address: { en: "Grand View High Street, Sector 58, Golf Course Road Extension, Gurugram", hi: "ग्रैंड व्यू हाई स्ट्रीट, सेक्टर 58, गोल्फ़ कोर्स रोड एक्सटेंशन, गुरुग्राम" },
-    note: { en: "Big group? Message ahead and the terrace is set up for you.", hi: "बड़ा ग्रुप है? पहले मैसेज करें, छत आपके लिए तैयार मिलेगी।" },
+    note: { en: "Big group or a celebration? Use VIP Reservation and the terrace is set up for you.", hi: "बड़ा ग्रुप या कोई जश्न? VIP रिज़र्वेशन करें, छत आपके लिए तैयार मिलेगी।" },
   },
   pour: { from: "jug", into: "glass", liquid: "#e98a3c", foam: "#f7c08a", thick: 1, ice: true, lime: true },
   story: [
@@ -129,5 +129,5 @@ export const SITE: Site = {
     en: "Hi Bellagio, I'd like to book a table on the rooftop. Date: , time: , people: ",
     hi: "नमस्ते Bellagio, मुझे रूफ़टॉप पर टेबल बुक करनी है। तारीख़: , समय: , लोग: ",
   },
-  order: ["build", "feature", "dishes", "reviews", "gallery", "visit"],
+  order: ["feature", "menu", "vip", "reviews", "gallery", "visit"],
 };

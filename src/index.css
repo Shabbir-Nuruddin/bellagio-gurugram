@@ -22,6 +22,7 @@ html {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
   scrollbar-color: var(--line) var(--bg);
 }
 body {

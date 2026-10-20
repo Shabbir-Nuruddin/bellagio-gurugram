@@ -3,7 +3,7 @@ import { Clock, MapPin, Phone, Star } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "../content";
 import { DAYS, UI, bi, fmtHour, type Lang } from "../lib";
-import { CallButton, CountUp, DirectionsButton, EASE, Heading, Photo, Quote, Rise, TEL, WaButton } from "./ui";
+import { CountUp, DirectionsButton, EASE, Heading, Photo, Quote, Rise, TEL } from "./ui";
 
 type P = { lang: Lang; reduced: boolean; index: string };
 const WRAP = "relative mx-auto max-w-[1280px] px-4 sm:px-8";
@@ -249,8 +249,6 @@ export function Visit({ lang, reduced, index, now }: P & { now: Date }) {
               </table>
             </div>
             <div className="mt-auto flex flex-wrap gap-3 pt-8">
-              <CallButton label={t.call} />
-              <WaButton label={t.whatsapp} text={bi(SITE.waHello, lang)} />
               <DirectionsButton label={t.directions} />
             </div>
           </Rise>

@@ -2,7 +2,9 @@
 import { AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
 import { SITE } from "../content";
 import { UI, bi, fmtHour, type Lang } from "../lib";
-import { CallButton, DirectionsButton, EASE, Stars, WaButton } from "./ui";
+import { Crown, DownloadSimple } from "@phosphor-icons/react";
+import { BOOK, MENU_PDF } from "./Book";
+import { DirectionsButton, EASE, Stars } from "./ui";
 
 const HOLD = 5200;
 const CREAM = "#fbf7f1";
@@ -10,8 +12,9 @@ const CREAM = "#fbf7f1";
 /** Cinematic hero: the restaurant's real photos fill the whole screen and tilt in 3D with the
  *  pointer; the headline flips up word by word straight on the photo, then sinks back into
  *  the screen as you scroll. */
-export function Hero({ lang, reduced, open, wa }: { lang: Lang; reduced: boolean; open: { open: boolean; at: number }; wa: string }) {
+export function Hero({ lang, reduced, open }: { lang: Lang; reduced: boolean; open: { open: boolean; at: number } }) {
   const t = UI[lang];
+  const m = BOOK[lang];
   const slides = SITE.hero.slides?.length ? SITE.hero.slides : [SITE.hero.backdrop ?? SITE.hero.fallback];
   const [i, setI] = useState(0);
   const ref = useRef<HTMLElement>(null);
@@ -143,8 +146,14 @@ export function Hero({ lang, reduced, open, wa }: { lang: Lang; reduced: boolean
             {bi(SITE.hero.proof, lang)}
           </motion.p>
           <motion.div {...rise(0.65)} className="mt-8 hidden flex-wrap gap-3 md:flex">
-            <CallButton label={t.call} />
-            <WaButton label={t.whatsapp} text={wa} className="!border-[#fbf7f1]/40 !text-[#fbf7f1] hover:!border-wa hover:!text-[#062a14]" />
+            <a href="#vip" className="inline-flex items-center gap-2.5 rounded-full bg-[#fbf7f1] px-6 py-3.5 text-[16px] font-semibold text-[#1f3a68] transition hover:-translate-y-0.5 active:scale-[0.98]">
+              <Crown size={19} weight="fill" />
+              {m.cta}
+            </a>
+            <a href={MENU_PDF} download="Bellagio-Gurugram-Menu.pdf" className="inline-flex items-center gap-2.5 rounded-full border border-[#fbf7f1]/40 px-6 py-3.5 text-[16px] font-semibold text-[#fbf7f1] transition hover:border-[#fbf7f1] active:scale-[0.98]">
+              <DownloadSimple size={19} weight="bold" />
+              {m.download}
+            </a>
             <DirectionsButton label={t.directions} className="!border-[#fbf7f1]/40 !text-[#fbf7f1]/85 hover:!border-[#fbf7f1] hover:!text-[#fbf7f1]" />
           </motion.div>
 
