@@ -48,7 +48,7 @@ export function Stars({ n = 5, size = 14 }: { n?: number; size?: number }) {
 }
 
 /** Section heading: the rule draws in, then the title rises word by word out of a mask. */
-export function Heading({ index, title, body, reduced }: { index: string; title: string; body?: string; reduced: boolean }) {
+export function Heading({ index, title, body, reduced, size = "text-[clamp(2.3rem,5.4vw,4.4rem)]" }: { index: string; title: string; body?: string; reduced: boolean; size?: string }) {
   const words = title.split(" ");
   const view = { once: true, margin: "0px 0px -10% 0px" } as const;
   return (
@@ -64,7 +64,7 @@ export function Heading({ index, title, body, reduced }: { index: string; title:
         />
       </p>
       <motion.h2
-        className="font-display text-[clamp(2.3rem,5.4vw,4.4rem)] leading-[1] tracking-[-0.015em] text-balance"
+        className={`font-display ${size} leading-[1] tracking-[-0.015em] text-balance`}
         initial={reduced ? false : "hide"}
         whileInView="show"
         viewport={view}

@@ -197,7 +197,7 @@ export function Vip({ lang, reduced, index }: { lang: Lang; reduced: boolean; in
       <div className="mx-auto max-w-[1280px] px-4 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
           <div className="min-w-0 lg:sticky lg:top-32 lg:self-start">
-            <Heading index={index} title={m.title} body={m.body} reduced={reduced} />
+            <Heading index={index} title={m.title} body={m.body} reduced={reduced} size="text-[clamp(2.1rem,3.3vw,3.1rem)]" />
             <div className="mt-8 hidden overflow-hidden rounded-3xl lg:block">
               <img src={SITE.visit.img} alt={SITE.visit.alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
             </div>
